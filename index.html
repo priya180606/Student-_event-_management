@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Event Management</title>
+
+    <!-- Connect CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>🎓 Campus Events</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#register">Register</a>
+            <a href="#myRegistrations">My Registrations</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="hero" id="home">
+        <h2>Welcome to Campus Events</h2>
+
+        <p>
+            Discover exciting college events, participate
+            and make your college life memorable!
+        </p>
+
+        <button onclick="goToEvents()">
+            Explore Events
+        </button>
+    </section>
+
+    <!-- Events Section -->
+    <main class="container" id="events">
+
+        <h2>Upcoming Events</h2>
+
+        <!-- Search and Filter -->
+        <div class="controls">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search events..."
+                oninput="displayEvents()"
+            >
+
+            <select id="category" onchange="displayEvents()">
+                <option value="All">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Cultural">Cultural</option>
+                <option value="Sports">Sports</option>
+            </select>
+
+        </div>
+
+        <!-- Events will appear here -->
+        <div class="events" id="eventList"></div>
+
+        <!-- Status Message -->
+        <p id="message" role="status" aria-live="polite"></p>
+
+        <!-- Student Registration Section -->
+        <section class="registration hidden" id="register">
+
+            <h2>Student Registration</h2>
+
+            <p id="selectedEvent"></p>
+
+            <form id="registrationForm">
+
+                <label for="studentName">Student Name</label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="department">Department</label>
+
+                <input
+                    type="text"
+                    id="department"
+                    placeholder="Enter your department"
+                    required
+                >
+
+                <button type="submit">
+                    Submit Registration
+                </button>
+
+                <button type="button" onclick="closeForm()">
+                    Cancel
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- My Registrations Section -->
+        <section class="registration" id="myRegistrations">
+
+            <h2>My Registrations</h2>
+
+            <div id="registrationList">
+                No registrations yet.
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 Campus Events |
+            Student Event Management System
+        </p>
+    </footer>
+
+    <!-- Connect JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
